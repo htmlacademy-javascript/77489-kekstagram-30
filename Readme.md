@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Дмитрий Сорочкин](https://up.htmlacademy.ru/javascript/30/user/77489).
-* Наставник: [Александр Сударев] (https://htmlacademy.ru/profile/id1152185).
+* Наставник: [Александр Сударев](https://htmlacademy.ru/profile/id1152185).
 
 ---
 
