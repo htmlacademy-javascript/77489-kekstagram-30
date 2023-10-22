@@ -45,15 +45,10 @@ const createIdGenerator = () => {
 
 const generateCommentId = createIdGenerator();
 
-const createMessage = () => Array.from (
-  { length: getRandomInteger(1, 2) },
-  () => getRandomArrayElement(COMMENT_LINES),
-).join(' ');
-
 const createComment = () => ({
   id: generateCommentId(),
   avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
-  message: createMessage(),
+  message: getRandomArrayElement(COMMENT_LINES),
   name: getRandomArrayElement(NAMES),
 });
 
