@@ -25,14 +25,14 @@ const DESCRIPTION = [
 const NAMES = ['Аристотель', 'Пифагор', 'Архимед', 'Евклид','Герон', 'Платон'];
 
 const getRandomInteger = (a, b) => {
-  const lower = Match.ceil(Match.min(a, b));
-  const upper = Match.floor(Match.max(a, b));
-  const result = Match.random() * (upper - lower + 1) + lower;
-  return Match.floor(result);
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
 };
 
 const getRandomArrayElement = (items) =>
-items[getRandomInteger(0, items.length - 1)];
+  items[getRandomInteger(0, items.length - 1)];
 
 const createIdGenerator = () => {
   let lastGeneratedId = 0;
@@ -48,10 +48,10 @@ const generateCommentId = createIdGenerator();
 const createMessage = () => Array.from (
   { length: getRandomInteger(1, 2) },
   () => getRandomArrayElement(COMMENT_LINES),
-  ).join(' ');
+).join(' ');
 
 const createComment = () => ({
-  id: generateCommentId();
+  id: generateCommentId(),
   avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
   message: createMessage(),
   name: getRandomArrayElement(NAMES),
@@ -60,7 +60,7 @@ const createComment = () => ({
 const generatePhotoId = createIdGenerator();
 
 const createPicture = (index) => ({
-  id: generatePhotoId();
+  id: generatePhotoId(),
   url: `photos/${index}.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
@@ -70,9 +70,9 @@ const createPicture = (index) => ({
   ),
 });
 
-const getPicture = () => Array.from(
+const getPictures = () => Array.from(
   { length: PICTURE_COUNT },
-  (_, pictureIndex) => createPicture(picterIndex + 1),
+  (_, pictureIndex) => createPicture(pictureIndex + 1),
 );
 
 getPictures();
