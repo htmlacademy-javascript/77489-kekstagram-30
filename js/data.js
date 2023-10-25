@@ -1,5 +1,3 @@
-import { getRandomInteger, getRandomArrayElement, createIdGenerator } from './util.js';
-
 const PICTURE_COUNT = 25;
 const AVATAR_COUNT = 6;
 const LIKE_MIN_COUNT = 15;
@@ -14,7 +12,7 @@ const COMMENT_LINES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-const DESCRIPTION = [
+const DESCRIPTION_ARRAY = [
   'Да, да! В это зеркало я буду фоткаться до тех пор, пока не состарюсь.',
   'Знали бы вы, что у меня на уме.',
   'Поймал дзен',
@@ -24,33 +22,15 @@ const DESCRIPTION = [
   'Смотри как могу!'
 ];
 
-const NAMES = ['Аристотель', 'Пифагор', 'Архимед', 'Евклид','Герон', 'Платон'];
+const NAMES_ARRAY = ['Аристотель', 'Пифагор', 'Архимед', 'Евклид','Герон', 'Платон'];
 
-const generateCommentId = createIdGenerator();
-
-const createComment = () => ({
-  id: generateCommentId(),
-  avatar: `img/avatar-${getRandomInteger(1, AVATAR_COUNT)}.svg`,
-  message: getRandomArrayElement(COMMENT_LINES),
-  name: getRandomArrayElement(NAMES),
-});
-
-const generatePhotoId = createIdGenerator();
-
-const createPicture = (index) => ({
-  id: generatePhotoId(),
-  url: `photos/${index}.jpg`,
-  description: getRandomArrayElement(DESCRIPTION),
-  likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
-  comments: Array.from(
-    { length: getRandomInteger(0, COMMENT_COUNT) },
-    createComment,
-  ),
-});
-
-const getPictures = () => Array.from(
-  { length: PICTURE_COUNT },
-  (_, pictureIndex) => createPicture(pictureIndex + 1),
-);
-
-export { getPictures };
+export {
+  PICTURE_COUNT,
+  AVATAR_COUNT,
+  LIKE_MIN_COUNT,
+  LIKE_MAX_COUNT,
+  COMMENT_COUNT,
+  COMMENT_LINES,
+  DESCRIPTION_ARRAY,
+  NAMES_ARRAY
+};
