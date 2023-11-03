@@ -1,3 +1,4 @@
 import { getPictures } from './photosArray.js';
+import { renderThumbnails } from './thumbnail.js';
 
-getPictures();
+renderThumbnails(getPictures());
