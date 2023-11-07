@@ -1,4 +1,9 @@
+const bigPictureElement = document.querySelector('.big-picture');
+
 const commentsListElement = document.querySelector('.social__comments');
+const commentCountElement = bigPictureElement.querySelector('.social__comment-count');
+const totalCommentCountElement = bigPictureElement.querySelector('.social__comment-total-count');
+const commentsLoaderElement = bigPictureElement.querySelector('.comments-loader');
 
 const commentElement = document
   .querySelector('#comment')
@@ -26,4 +31,9 @@ const renderComments = (comments) => {
   commentsListElement.append(fragment);
 };
 
-export { renderComments };
+const inCommentList = () => {
+  commentCountElement.classList.add('hidden');
+  commentsLoaderElement.classList.add('hidden');
+};
+
+export { renderComments, inCommentList };

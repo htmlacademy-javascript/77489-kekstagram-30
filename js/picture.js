@@ -1,4 +1,4 @@
-import { renderComments } from './comment.js';
+import { renderComments, inCommentList } from './comment.js';
 
 const bigPictureElement = document.querySelector('.big-picture');
 const bodyElement = document.querySelector('body');
@@ -34,6 +34,7 @@ const showPicture = (pictureData) => {
   document.addEventListener('keydown', onDocumentKeydown);
 
   renderComments(pictureData.comments);
+  inCommentList();
 
   renderPicture(pictureData);
 };
