@@ -52,6 +52,7 @@ const renderComments = () => {
 const onCommentsLoaderClick = () => renderComments();
 
 const hidePicture = () => {
+  commentsCountShow = 0;
   bigPictureElement.classList.add('hidden');
   bodyElement.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
