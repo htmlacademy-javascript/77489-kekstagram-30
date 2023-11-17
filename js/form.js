@@ -1,3 +1,6 @@
+import { resetScale } from './scale.js';
+import {init as initEffect, reset as resetEffect} from './effect.js';
+
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const errorText = {
@@ -28,6 +31,8 @@ const showModal = () => {
 
 const hideModal = () => {
   form.reset();
+  resetScale();
+  resetEffect();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -99,3 +104,4 @@ pristine.addValidator(
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancalButtonClick);
 form.addEventListener('submit', onFormSubmit);
+initEffect();
