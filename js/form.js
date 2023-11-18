@@ -1,3 +1,6 @@
+import { resetScale } from './scale.js';
+import {init as initEffect, reset as resetEffect} from './effect.js';
+
 const MAX_HASHTAG_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const errorText = {
@@ -21,6 +24,7 @@ const pristine = new Pristine(form, {
 });
 
 const showModal = () => {
+  initEffect();
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
@@ -28,6 +32,8 @@ const showModal = () => {
 
 const hideModal = () => {
   form.reset();
+  resetScale();
+  resetEffect();
   pristine.reset();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
