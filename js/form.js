@@ -24,6 +24,7 @@ const pristine = new Pristine(form, {
 });
 
 const showModal = () => {
+  initEffect();
   overlay.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
@@ -104,4 +105,3 @@ pristine.addValidator(
 fileField.addEventListener('change', onFileInputChange);
 cancelButton.addEventListener('click', onCancalButtonClick);
 form.addEventListener('submit', onFormSubmit);
-initEffect();
