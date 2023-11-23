@@ -1,11 +1,11 @@
-import { getRandomInteger, getRandomArrayElement, createIdGenerator } from './utils.js';
-import {
-  data,
-  PICTURE_COUNT,
-  AVATAR_COUNT,
-  LIKE_MIN_COUNT,
-  LIKE_MAX_COUNT,
-  COMMENT_COUNT } from './data.js';
+// import { getRandomInteger, getRandomArrayElement, createIdGenerator } from './utils.js';
+// import {
+//   data,
+//   PICTURE_COUNT,
+//   AVATAR_COUNT,
+//   LIKE_MIN_COUNT,
+//   LIKE_MAX_COUNT,
+//   COMMENT_COUNT } from './data.js';
 
 const generateCommentId = createIdGenerator();
 
@@ -34,4 +34,4 @@ const getPictures = () => Array.from(
   (_, pictureIndex) => createPicture(pictureIndex + 1),
 );
 
-export { getPictures };
+// export { getPictures };
