@@ -35,7 +35,7 @@ function onBodyClick(evt) {
 
 function showMessage(element, buttonClass) {
   document.body.append(element);
-  document.body.addEventListener('click', onBodyClick)
+  document.body.addEventListener('click', onBodyClick);
   document.addEventListener('keydown', onDocumentKeydown);
   element
     .querySelector(buttonClass)
