@@ -1,20 +1,16 @@
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
+const REMOVE_MESSAGE_TIMEOUT = 5000;
 
-const getRandomArrayElement = (items) =>
-  items[getRandomInteger(0, items.length - 1)];
+const errorMesageTemplate = document
+  .querySelector('#data-error')
+  .content.querySelector('.data-error');
 
-const createIdGenerator = () => {
-  let lastGeneratedId = 0;
+function showErrorMesage() {
+  const errorElement = errorMesageTemplate.cloneNode(true);
+  document.body.append(errorElement);
 
-  return () => {
-    lastGeneratedId += 1;
-    return lastGeneratedId;
-  };
-};
+  setTimeout(() => {
+    errorElement.remove();
+  }, REMOVE_MESSAGE_TIMEOUT);
+}
 
-export { getRandomInteger, getRandomArrayElement, createIdGenerator };
+export { showErrorMesage };
