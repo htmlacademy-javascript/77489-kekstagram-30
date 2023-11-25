@@ -5,7 +5,7 @@ const errorMessageTemplate = document
   .content
   .querySelector('data-error');
 
-function showErrorMesage() {
+function showErrorMessage() {
   const errorElement = errorMessageTemplate.cloneNode(true);
   document.body.append(errorElement);
 
@@ -14,4 +14,4 @@ function showErrorMesage() {
   }, REMOVE_MESSAGE_TIMEOUT);
 }
 
-export { showErrorMesage };
+export { showErrorMessage };
