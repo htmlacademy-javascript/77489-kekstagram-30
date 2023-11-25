@@ -1,7 +1,7 @@
 const succesMessageElement = document
-  .querySelector('#succes')
+  .querySelector('#success')
   .content
-  .querySelector('.succes');
+  .querySelector('.success');
 
 const errorMessageElement = document
   .querySelector('#error')

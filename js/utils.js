@@ -1,12 +1,12 @@
 const REMOVE_MESSAGE_TIMEOUT = 5000;
 
-const errorMesageTemplate = document
+const errorMessageTemplate = document
   .querySelector('#data-error')
   .content
   .querySelector('data-error');
 
 function showErrorMesage() {
-  const errorElement = errorMesageTemplate.cloneNode(true);
+  const errorElement = errorMessageTemplate.cloneNode(true);
   document.body.append(errorElement);
 
   setTimeout(() => {
