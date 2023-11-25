@@ -1,5 +1,5 @@
 import { resetScale } from './scale.js';
-import { init as initEffect, reset as resetEffect } from './effect.js';
+import { init as initEffect, reset as resetEffect, destroy as destroySlider } from './effects.js';
 import { sendPicture } from './api.js';
 import { showSuccesMessage, showErrorMessage } from './message.js';
 
@@ -23,7 +23,7 @@ const cancelButton = form.querySelector('.img-upload__cancel');
 const fileField = form.querySelector('.img-upload__input');
 const hashtagField = form.querySelector('.text__hashtags');
 const commentField = form.querySelector('.text__description');
-const submitButton = form.querySelector('img-upload__submit');
+const submitButton = form.querySelector('.img-upload__submit');
 
 function toogleSubmitButton(isDisabled) {
   submitButton.disabled = isDisabled;
@@ -64,7 +64,7 @@ const isTextFieldFocused = () =>
 
 const normalizeTags = (tagString) => tagString
   .trim()
-  .split('')
+  .split(" ")
   .filter((tag) => Boolean(tag.length));
 
 const hasValidTags = (value) => normalizeTags(value).every((tag) => VALID_SYMBOLS.test(tag));
@@ -102,6 +102,7 @@ async function sendForm(formElement) {
     toogleSubmitButton(false);
     hideModal();
     showSuccesMessage();
+    destroySlider();
   } catch {
     showErrorMessage();
     toogleSubmitButton(false);

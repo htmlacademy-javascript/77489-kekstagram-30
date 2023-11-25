@@ -9,7 +9,7 @@ const errorMessageElement = document
   .querySelector('.error');
 
 function hideMessage() {
-  const existElement = document.querySelector('.succes') || document.querySelector('.error');
+  const existElement = document.querySelector('.success') || document.querySelector('.error');
   existElement.remove();
   document.removeEventListener('keydown', onDocumentKeydown);
   document.body.removeEventListener('click', onBodyClick);

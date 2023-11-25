@@ -150,4 +150,6 @@ const init = () => {
   effectsElement.addEventListener('change', onEffectsChange);
 };
 
-export { init, reset };
+const destroy = () => sliderElement.noUiSlider.destroy();
+
+export { init, reset, destroy };

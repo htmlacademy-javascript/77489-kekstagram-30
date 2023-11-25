@@ -7,14 +7,13 @@ const renderGallery = (pictures) => {
   container.addEventListener('click', (evt) => {
     const thumbnail = evt.target.closest('[data-thumbnail-id]');
 
-    if (! thumbnail) {
+    if (!thumbnail) {
       return;
     }
 
     evt.preventDefault();
 
-    const thumbnailId = +thumbnail.dataset.thumbnailId;
-    const pictureData = pictures.find(({ id }) => id === thumbnailId);
+    const pictureData = pictures.find(({ id }) => +id === +thumbnail.dataset.thumbnailId);
     showPicture(pictureData);
   });
 
