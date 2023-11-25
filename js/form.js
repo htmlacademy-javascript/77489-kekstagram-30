@@ -64,7 +64,7 @@ const isTextFieldFocused = () =>
 
 const normalizeTags = (tagString) => tagString
   .trim()
-  .split(" ")
+  .split(' ')
   .filter((tag) => Boolean(tag.length));
 
 const hasValidTags = (value) => normalizeTags(value).every((tag) => VALID_SYMBOLS.test(tag));
