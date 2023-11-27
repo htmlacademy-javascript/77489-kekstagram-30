@@ -24,7 +24,7 @@ const filterHandlers = {
     const max = Math.min(MAX_RANDOM_FILTER, data.length);
     while (randomIndexList.length < max) {
       const index = getRandomIndex(0, data.length);
-      if (!randomIndexList.includess(index)) {
+      if (!randomIndexList.includes(index)) {
         randomIndexList.push(index);
       }
     }
@@ -36,7 +36,7 @@ const filterHandlers = {
 const repaint = (evt, filter, data) => {
   const filterdData = filterHandlers[filter](data);
   const pictures = document.querySelectorAll('.picture');
-  pictures.forEach(item => item.remove());
+  pictures.forEach((item) => item.remove());
   renderGallery(filterdData);
 
   const currentActiveEL = filterForm.querySelector('.img-filters__button--active');

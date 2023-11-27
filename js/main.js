@@ -8,7 +8,7 @@ import { initFilter } from './filters.js';
   try {
     const pictures = await loadPictures();
     renderGallery(pictures);
-    initFilter();
+    initFilter(pictures);
   } catch {
     showErrorMesage();
   }
