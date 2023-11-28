@@ -33,15 +33,19 @@ const filterHandlers = {
   [filterEnum.DISCUSSED]: (data) => [...data].sort((item1, item2) => item2.comments.length - item1.comments.length),
 };
 
-const repaint = (evt, filter, data) => {
-  const filterdData = filterHandlers[filter](data);
-  const pictures = document.querySelectorAll('.picture');
-  pictures.forEach((item) => item.remove());
-  renderGallery(filterdData);
+let currentFilter = filterEnum.DEFAULT;
 
-  const currentActiveEL = filterForm.querySelector('.img-filters__button--active');
-  currentActiveEL.classList.remove('img-filters__button--active');
-  evt.target.classList.add('img-filters__button--active');
+const repaint = (evt, filter, data) => {
+  if (currentFilter !== filter) {
+    const filterdData = filterHandlers[filter](data);
+    const pictures = document.querySelectorAll('.picture');
+    pictures.forEach((item) => item.remove());
+    renderGallery(filterdData);
+    const currentActiveEL = filterForm.querySelector('.img-filters__button--active');
+    currentActiveEL.classList.remove('img-filters__button--active');
+    evt.target.classList.add('img-filters__button--active');
+    currentFilter = filter;
+  }
 };
 
 const debounceRepaint = debounce(repaint);
