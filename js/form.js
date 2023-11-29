@@ -56,6 +56,7 @@ const hideModal = () => {
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
+  destroySlider();
 };
 
 const isTextFieldFocused = () =>
@@ -102,7 +103,6 @@ async function sendForm(formElement) {
     toogleSubmitButton(false);
     hideModal();
     showSuccesMessage();
-    destroySlider();
   } catch {
     showErrorMessage();
     toogleSubmitButton(false);
