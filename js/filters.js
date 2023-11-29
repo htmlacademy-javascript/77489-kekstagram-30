@@ -41,7 +41,6 @@ const repaint = (evt, filter, data) => {
     const pictures = document.querySelectorAll('.picture');
     pictures.forEach((item) => item.remove());
     renderGallery(filterdData);
-
     currentFilter = filter;
   }
 };
