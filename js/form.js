@@ -56,6 +56,7 @@ const hideModal = () => {
   resetScale();
   resetEffect();
   pristine.reset();
+  destroySlider();
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
@@ -118,7 +119,6 @@ async function sendForm(formElement) {
     toogleSubmitButton(false);
     hideModal();
     showSuccesMessage();
-    destroySlider();
   } catch {
     showErrorMessage();
     toogleSubmitButton(false);
