@@ -3,19 +3,22 @@ import { showPicture } from './picture.js';
 
 const container = document.querySelector('.pictures');
 
-const renderGallery = (pictures) => {
-  container.addEventListener('click', (evt) => {
-    const thumbnail = evt.target.closest('[data-thumbnail-id]');
 
-    if (!thumbnail) {
-      return;
-    }
+const renderGallery = (pictures, withEventListener = true) => {
+  if (withEventListener){
+    container.addEventListener('click', (evt) => {
+      const thumbnail = evt.target.closest('[data-thumbnail-id]');
 
-    evt.preventDefault();
+      if (!thumbnail) {
+        return;
+      }
 
-    const pictureData = pictures.find(({ id }) => +id === +thumbnail.dataset.thumbnailId);
-    showPicture(pictureData);
-  });
+      evt.preventDefault();
+
+      const pictureData = pictures.find(({ id }) => +id === +thumbnail.dataset.thumbnailId);
+      showPicture(pictureData);
+    });
+  }
 
   renderThumbnails(pictures, container);
 };
