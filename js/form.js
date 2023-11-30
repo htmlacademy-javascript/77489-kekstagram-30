@@ -28,7 +28,7 @@ const submitButton = form.querySelector('.img-upload__submit');
 const photoPreview = form.querySelector('.img-upload__preview img');
 const effectsPreviews = form.querySelectorAll('.effects__preview');
 
-function toogleSubmitButton(isDisabled) {
+const toogleSubmitButton = (isDisabled) => {
   submitButton.disabled = isDisabled;
 
   if (isDisabled) {
@@ -36,7 +36,7 @@ function toogleSubmitButton(isDisabled) {
   } else {
     submitButton.textContent = submitButtonCaption.IDLE;
   }
-}
+};
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
@@ -86,15 +86,14 @@ const hasUniqueTags = (value) => {
 };
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape' && !isTextFieldFocused()) {
+  const modalErrorIsOpen = Boolean(document.querySelector('.error'));
+  if (evt.key === 'Escape' && !isTextFieldFocused() && !modalErrorIsOpen) {
     evt.preventDefault();
     hideModal();
   }
 }
 
-const onCancalButtonClick = () => {
-  hideModal();
-};
+const onCancalButtonClick = () => hideModal();
 
 const onFileInputChange = () => {
   const file = fileField.files[0];
